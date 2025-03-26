@@ -9,11 +9,21 @@ version = "0.1.0"
 [[package]]
 name = "lib_boworring"
 version = "0.1.0"
+dependencies = [
+ "inventory",
+ "lib_users",
+]
 
 [[package]]
 name = "lib_users"
 version = "0.1.0"
+dependencies = [
+ "inventory",
+]
 
 [[package]]
 name = "library_app"
 version = "0.1.0"
+dependencies = [
+ "lib_boworring",
+]
