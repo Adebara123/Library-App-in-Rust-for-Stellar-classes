@@ -30,13 +30,10 @@ impl UserManger {
 
     pub fn return_book(&mut self, user_id: u32, book_id: u32) {
         if let Some(user) = self.users.iter_mut().find(|u| u.id == user_id) {
-            
             user.borrowed_books.retain(|&id| id != book_id);
-            
         }
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -56,6 +53,12 @@ mod tests {
         assert_eq!(user_manager.get_user(1).unwrap().name, "Victor");
 
         user_manager.borrow_book(1, 101);
-        assert!(user_manager.get_user(1).unwrap().borrowed_books.contains(&101));
+        assert!(
+            user_manager
+                .get_user(1)
+                .unwrap()
+                .borrowed_books
+                .contains(&101)
+        );
     }
 }
