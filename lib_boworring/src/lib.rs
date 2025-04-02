@@ -121,4 +121,16 @@ mod tests {
         assert!(!user_manager.get_user(1).unwrap().borrowed_books.contains(&1));
     }
 
+    #[test]
+    fn test_borrow_unavailable_book () {
+        let (mut inventory, mut user_manager, borrowing_service) = setup();
+
+        // Borrow the book 
+
+        assert!(borrowing_service.borrow_book(&mut inventory, &mut user_manager, 1, 1).is_ok());
+
+        // Try to borrow again 
+        assert!(borrowing_service.borrow_book(&mut inventory, &mut user_manager, 1, 1).is_err());
+    }
+
 }

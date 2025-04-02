@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 lib_boworring ={ path = "../lib_boworring"}
+inventory = { path = "../inventory" }
+lib_users = { path = "../lib_users" }
